@@ -1,0 +1,24 @@
+			   -------CHANGELOG-------		   	    
+													
+				  Version 3.0
+				  
+	 ->Added Changelog at startup and in about.
+	 ->Fixed Window size for Windows 10 with MoveWindow function from 
+	   windows.h.
+	 ->Fixed Color for Windows 10 by changing the colors to lighter
+	   ones.
+	 ->Fixed playing with computer. It was previously throwing up 
+	   errors by returning positions that were already occupied.
+	 ->Unwanted header file removed. ctime.h was added previously.
+	 
+				  Version 2.0
+				  
+	 ->Option to play with computer added.
+	 ->UI materialised and made user friendly.
+	 ->Logics reworked for easier functioning.
+	 ->Minor bug fixes.
+	 
+				  Version 1.0
+				  
+	 ->Initial release.
+	 ->Basic logic written.
