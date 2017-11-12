@@ -750,8 +750,8 @@ Advanced()
 				cout<<"                                                                  \t     -Deepjyoti Barman";
 				cout<<"    ==============================THANK_YOU!!!===================================";
 				cout<<"\n\n";
-				cout<<"                                 Deepjyoti---email@ deep.barman30@gmail.com    ";
-				cout<<"                                                            Rozeen---email@    ";
+				cout<<"                                 								 Deepjyoti    ";
+				cout<<"                                                                     Rozeen    ";
 				getch();
 				exit(0);
 			}
@@ -767,7 +767,7 @@ About()
 		cout<<"\n\n\t\t\t\t---->>VERSION<<---\n\t\t\t\t\t3.0\n";
 		cout<<"\t\t\t\tPress c for changelog";
 		cout<<"\n\n\t\t\t\t--->>DEVELOPERS<<---\n";
-		cout<<"\n\t\t--->>    Deepjyoti Barman(deepjyoti30@xda)    <<---";
+		cout<<"\n\t\t--->>    		  Deepjyoti Barman   		   <<---";
 		cout<<"\n\t\t--->>         Rozeen Hussain(DeVile)          <<---";
 		cout<<"\n\n\t\t\t  -------------XXXXXX------------";
 		cout<<"\n\t\t\t   Want to take a challenge?";
