@@ -1,5 +1,3 @@
-/*R&D CODEHOUSE*/
-
 #define _WIN32_WINNT 0x0500
 #include <iostream>
 #include <string.h>
@@ -890,6 +888,6 @@ int main()
 	1 FOR GAME IS OVER WITH RESULT
 	-1 FOR GAME IS IN PROGRESS
 	O GAME IS OVER AND NO RESULT	*/
-//fi.close();
+
 
 	
