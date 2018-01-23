@@ -670,7 +670,7 @@ Gameplay()
 						Save_data(plyr,k);
 					}
 				else
-					cout<<"==>\a\n\t\t\tGame draw";	
+					cout<<"\a\n\t\t\tGame draw!";	
 	}
 	
 Advanced()
