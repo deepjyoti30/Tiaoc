@@ -40,7 +40,6 @@ class Temp
 			Take_temp(int pos,int no,int ply)
 				{
 					plyr=ply;
-				//	for(int i=0;i<10;i++)
 						st[pos]=no;
 					cout<<"\nData taking complete";
 				}
@@ -88,7 +87,6 @@ int Ask()
 		else
 			{
 				cout<<"\n\t\t\t*****Saved Game found!*****\n\t\t\tWould you like to continue?? \n\t\tPress Y if Yes, else press any key to Start new";
-				//gets(chi);
 				cin>>chi;
 				if(chi=='Y')
 					{
@@ -179,7 +177,7 @@ Exit_Animation()
 		while(Exit[x]!='\0')
 			{
 				cout<<Exit[x];
-				Sleep(1);
+				Sleep(0.7);
 				x++;
 			}
 	}
@@ -282,6 +280,10 @@ int winchck(char sqr[])
 				else
 					return -1;
 			}
+		/*	RETURNs GAME STATUS
+		1 FOR GAME IS OVER WITH RESULT
+		-1 FOR GAME IS IN PROGRESS
+		O GAME IS OVER AND NO RESULT	*/
 		void board(char sqr[])
 			{
 				Resize();
@@ -289,7 +291,6 @@ int winchck(char sqr[])
 				system("Color 6B");
 				cout << "\n\t\t\t   Player 1 (X)  -  Player 2 (O)" << endl;
 				cout << endl;
-			//	cout << "\t\t\t       ---------------------\n";
 				cout << "\t\t\t              |     |       " << endl;
 				cout << "\t\t\t              |     |       " << endl;
 				cout << "\t\t\t           " << sqr[1] << "  |  " << sqr[2] << "  |  " << sqr[3] << "    \n";
@@ -352,10 +353,6 @@ class Game
 		char win[80],los[80];
 		int sno,plyr;
 		public:
-			//Game()
-			//	{
-			//		sno=0;
-			//	}
 			 returnsno()
 				{
 					return sno;
@@ -364,10 +361,6 @@ class Game
 				{
 					sno=no;
 				}
-			/* static inc_sno()
-			 	{
-					sno++;
-				}*/
 			 dec_sno()
 				{
 					sno--;
@@ -376,13 +369,11 @@ class Game
 			{
 				if(k==0)
 					{
-					//cout<<"\nsno after"<<sno;
 					cout<<"\n\t\t\tCongrats to player "<<ply<<" !!";
 					cout<<"\n\t\tEnter the winners name (5 characters only)\n\t\t\t";
 					gets(win);
 					gets(win);
 					cout<<"\n\t\tEnter the losers name (5 characters only)\n\t\t\t";
-					//cin>>los;
 					gets(los);	
 					}
 				else
@@ -402,7 +393,6 @@ class Game
 								gets(win);
 								cout<<"\n\t\t   Enter losers name \\5 characters only\n\t\t\t";
 								gets(los);
-							//	gets(los);
 							}
 						
 					}
@@ -415,7 +405,6 @@ class Game
 	};
 	
 	Game g;
-	//fstream fi("Saved_Games.dat",ios::in|ios::out);
 	
 Delete_data()
 	{
@@ -502,13 +491,10 @@ Delete_data()
 					}
 			}
 			}
-		
-		
-		//cout<<"\n\t\tRemoved the file";
-		//sno=0;
 	}
 	
-Push_data()//////////////////////////////Working!!
+Push_data()
+	//Pushes the record to add the newly added one.
 	{
 	int no=1;
 	fstream fpush("Saved_Games.dat",ios::in);
@@ -527,7 +513,7 @@ Push_data()//////////////////////////////Working!!
 	rename("temp.dat","Saved_Games.dat");
 	}	
 
-Check_data()/////////////////////////////////Working!!!!!
+Check_data()
 	{
 		fstream fchk("Saved_Games.dat",ios::in);
 		fchk.seekg(9*sizeof(g),ios::beg);
@@ -540,7 +526,7 @@ Check_data()/////////////////////////////////Working!!!!!
 			}
 	}
 	
-int Add_smart()  //takes out the last sno and returns it/////////////////////////////////////Working!!!!!
+int Add_smart()  //takes out the last sno and returns it
 	{
 		int sno;
 		fstream fa("Saved_Games.dat",ios::in|ios::app);
@@ -552,7 +538,7 @@ int Add_smart()  //takes out the last sno and returns it////////////////////////
 		return sno;	
 	}
 	
-Save_data(int plyr,int k)   //saves the data////////////////////////////////////////////Working!!!
+Save_data(int plyr,int k)   //saves the data
 	{
 		Check_data();
 		fstream ofs("Saved_Games.dat",ios::out|ios::app);
@@ -567,7 +553,7 @@ Save_data(int plyr,int k)   //saves the data////////////////////////////////////
 		ofs.close();
 	}
 	
-Read_data()//////////////////////////////////////////Working!!!
+Read_data()
 	{
 		Resize();
 		system("cls");
@@ -581,7 +567,6 @@ Read_data()//////////////////////////////////////////Working!!!
 	  			while(ifs.read((char*)&g,sizeof(g)))
 				  	{
 						g.Show_data();
-					//	if(ifs.eof()); break;
 					}
 				ifs.close();	
 			}
@@ -590,14 +575,12 @@ Read_data()//////////////////////////////////////////Working!!!
 Gameplay()
 	{
 		int ret=1;char sqr[10];
-		//char sqr[10] = {'o','1','2','3','4','5','6','7','8','9'};
 		int plyr,q,k=0;int num;
 		char chice;
 		k=Ask();
 		plyr=Check_plyr();
 		for(int i=0;i<10;i++)
 			sqr[i]=Check_n_return(i);
-		//getch();
 		system("cls");
 			do
 			{
@@ -622,7 +605,6 @@ Gameplay()
 						cout << "\n\t      Player " << plyr << ", enter any available number in the board :  ";
 						chice=_getch();
 					}
-			//	int x=returnVal('X');
 				num=(plyr == 1) ? 'X' : '0' ;
 				if (chice == '1' && sqr[1] == '1')
 					sqr[1] = num;
@@ -712,7 +694,6 @@ Advanced()
 			}
 		getch();
 		system("cls");
-		//cout<<"\n\n================================================================================\n";
 		cout<<"\n\n\t\tint check_DIG(int no)\n";
 		cout<<"\t\t	{					\n";
 		cout<<"\t\t	int i;				\n";
@@ -722,7 +703,6 @@ Advanced()
 		cout<<"\t\t		int y=(no/(pow(10,i)));\n";
 		cout<<"\t\t			if(y==0)		   \n";
 		cout<<"\t\t	 			{      		   \n";
-				 		//	cout<<"\nDigit calculated!";
 		cout<<"\t\t				return i;  \n";
 		cout<<"\t\t				break;	   \n";	
 		cout<<"\t\t			}			   \n";
@@ -738,7 +718,6 @@ Advanced()
 				getch();
 				system("cls");
 				cout<<"\n\n ==============================================================================\n";
-				//cout<<"  Assume that you make a program where the user enters a range and the program ";
 				cout<<"       You will make a great programmer! While we were in school, we were   ";
 				cout<<"     dissapointed to see that not many students gave importance to C.Sci and it was";
 				cout<<"  the fav subject of many just because it is easy to score.You seem to have what    we";
@@ -747,11 +726,11 @@ Advanced()
 				cout<<"                 We CHALLENGE you to write a program better than";
 				cout<<" ours and email it to either  \t\t of us. You can also email us for any kind of help!";
 				cout<<"\t\t\t\t\t\t\t\t\t\t";
-				cout<<"                                                                  \t     -Deepjyoti Barman";
-				cout<<"    ==============================THANK_YOU!!!===================================";
+				cout<<"                                                                  \t   -Deepjyoti Barman";
+				cout<<"\n\n ==================================THANK YOU!==================================\n";
 				cout<<"\n\n";
-				cout<<"                                 								 Deepjyoti    ";
-				cout<<"                                                                     Rozeen    ";
+				cout<<"                                 Deepjyoti- email : deep.barman30@gmail.com ";
+				cout<<"\n                                         Rozeen    ";
 				getch();
 				exit(0);
 			}
@@ -767,10 +746,10 @@ About()
 		cout<<"\n\n\t\t\t\t---->>VERSION<<---\n\t\t\t\t\t3.0\n";
 		cout<<"\t\t\t\tPress c for changelog";
 		cout<<"\n\n\t\t\t\t--->>DEVELOPERS<<---\n";
-		cout<<"\n\t\t--->>    		  Deepjyoti Barman   		   <<---";
-		cout<<"\n\t\t--->>         Rozeen Hussain(DeVile)          <<---";
+		cout<<"\n\t\t--->>         Deepjyoti Barman(deepjyoti30)         <<---";
+		cout<<"\n\t\t--->>             Rozeen Hussain(DeVile)            <<---";
 		cout<<"\n\n\t\t\t  -------------XXXXXX------------";
-		cout<<"\n\t\t\t   Want to take a challenge?";
+		cout<<"\n\n\t\t\t      Want to take a challenge?";
 		cin>>chi;
 		if(chi=='c')
 			Changelog();
@@ -847,7 +826,6 @@ int main()
 			cout<<"\n  #                                                                 2017-18 #";
 			cout<<"\n  ###########################################################################\n";
 			cout<<"================================================================================";
-		//	cout<<"================================================================================\n";
 			cout<<"\t\t\t\t|||||ENTER CHOICE|||||";
 			cout<<"\n\t\t\t1:Play Game";
 			cout<<"\n\t\t\t2:Show last 10 records";
@@ -857,11 +835,10 @@ int main()
 			cout<<"\n\t\t\t***************************";
 			cout<<"\n\t\t------------->>>>ENJOY THE GAME<<<<-------------\n";
 			cout<<"--------------------------------------------------------------------------------\t\t\tOption:";
-			cin>>j;//j=_getch();
+			cin>>j;
 			switch(j)
 				{
 					case '1':
-					//	Check_saved();
 						Gameplay();cout<<"\n\t\t\t   Press any Key to continue";getch();
 					break;
 					case '2':
@@ -883,11 +860,6 @@ int main()
 				}
 		}
 	}
-	
-/*	FUNCTION TO RETURN GAME STATUS
-	1 FOR GAME IS OVER WITH RESULT
-	-1 FOR GAME IS IN PROGRESS
-	O GAME IS OVER AND NO RESULT	*/
 
 
 	
